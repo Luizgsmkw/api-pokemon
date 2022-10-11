@@ -1,24 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { RotaApiPoke } from "./components/routes/RotaApiPoke";
+import { ThemeProvider } from './components/context/theme-context';
+import Header from './components/header/Header'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Header />
+     <RotaApiPoke />
+    </ThemeProvider>
   );
 }
 
