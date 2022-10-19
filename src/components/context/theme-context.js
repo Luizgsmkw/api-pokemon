@@ -22,6 +22,16 @@ export const headerThemes = {
   },
 };
 
+export const imgThemes = {
+  light: {
+    filter: "none",
+  },
+
+  dark: {
+    filter: "grayscale(100%)",
+  },
+};
+
 export const cardThemes = {
   light: {
     backgroundImage: "linear-gradient( to bottom, #65A603, #9BBF65, #EBF2B3)",
@@ -39,6 +49,9 @@ export const ThemeProvider = (props) => {
   const [theme, setTheme] = useState(themes.light);
   const [themeHeader, setThemeHeader] = useState(headerThemes.light);
   const [themeCard, setThemeCard] = useState(cardThemes.light);
+  const [themeImg, setThemeImg] = useState(imgThemes.light);
+
+  
   return (
     <ThemeContext.Provider
       value={{
@@ -48,6 +61,8 @@ export const ThemeProvider = (props) => {
         setThemeHeader,
         themeCard,
         setThemeCard,
+        themeImg,
+        setThemeImg
       }}
     >
       {props.children}

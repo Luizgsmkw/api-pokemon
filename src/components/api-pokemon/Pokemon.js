@@ -6,6 +6,7 @@ import {
   themes,
   headerThemes,
   cardThemes,
+  imgThemes,
 } from "../context/theme-context";
 import styled from "styled-components";
 import * as S from "../styles/pokemonStyled";
@@ -16,9 +17,11 @@ const Pokemon = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { themeHeader, setThemeHeader } = useContext(ThemeContext);
   const { themeCard, setThemeCard } = useContext(ThemeContext);
+  const {themeImg, setThemeImg} = useContext(ThemeContext);
   const clara = theme.color;
   const clara2 = theme.background;
   const cardClaro = themeCard.backgroundImage;
+  const imgClara = themeImg.filter;
 
   const Main = styled.main`
     display: flex;
@@ -44,6 +47,14 @@ const Pokemon = () => {
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     background-image: ${cardClaro};
+  `;
+
+  const ImgPokemon = styled.img`
+    filter: ${imgClara};
+    &:hover{
+    filter: none;
+    transition: 0.6s;
+  }
   `;
 
   const Button = styled.button`
@@ -95,6 +106,8 @@ const Pokemon = () => {
                 ? cardThemes.dark
                 : cardThemes.light
             );
+
+            setThemeImg(themeImg === imgThemes.light ? imgThemes.dark : imgThemes.light)
           }}
         >
           {(clara === "#000000" && buttonClaro) ||
@@ -104,7 +117,7 @@ const Pokemon = () => {
       <S.ContainerCards>
         {pokemons.map((item, index) => (
           <Card key={index}>
-            <img src={item.sprites.front_default} alt="" />
+            <ImgPokemon src={item.sprites.front_default} alt="" />
             <p>{item.pokemon.name}</p>
             <Link to={`/${index + 1}`}>saiba mais</Link>
           </Card>

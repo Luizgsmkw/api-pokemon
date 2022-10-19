@@ -15,8 +15,8 @@ const Header = () => {
   `;
   return (
     <Header>
-      {(headerClara === "#DEF2B3" && <S.Logo src={logo2} alt="" />) ||
-        (headerClara === " #262626" && <S.Logo src={logo} alt="" />)}
+      {(headerClara === "#DEF2B3" && <S.LinkHeader to='/'> <S.Logo src={logo2} alt="" /></S.LinkHeader>) ||
+        (headerClara === " #262626" && <S.LinkHeader to='/'><S.Logo src={logo} alt="" /></S.LinkHeader>)} 
     </Header>
   );
 };
